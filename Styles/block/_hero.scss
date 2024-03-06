@@ -3,11 +3,19 @@
 	flex-direction: column;
 	row-gap: var(--section-padding-y);
 
+	@include desktop {
+		row-gap: 60px;
+	}
+
 	&__main {
 		display: flex;
 		justify-content: space-between;
 		align-items: flex-start;
 		column-gap: 30px;
+
+		@include mobile {
+			flex-direction: column;
+		}
 	}
 
 	&__body {
@@ -16,11 +24,28 @@
 		align-items: start;
 		row-gap: 30px;
 		max-width: 531px;
+
+		@include mobile {
+			display: contents;
+		}
+	}
+
+	&__title {
+		@include mobile {
+			font-size: 33px;
+			order: -2;
+			margin-bottom: 10px;
+		}
 	}
 
 	&__description {
 		font-size: 20px;
 		line-height: 1.4;
+
+		@include mobile {
+			font-size: 16px;
+			margin-bottom: 40px;
+		}
 	}
 
 	&__partners {
@@ -29,6 +54,19 @@
 			display: flex;
 			justify-content: space-between;
 			gap: 37px;
+
+			@include tablet {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				row-gap: 20px;
+			}
+		}
+
+		&-item {
+			@include tablet {
+				display: flex;
+				justify-content: center;
+			}
 		}
 
 		&-image {
@@ -37,9 +75,27 @@
 	}
 
 	&__images {
+		@include desktop {
+			max-width: 54%;
+		}
 		@include tablet {
 			max-width: 40%;
 			height: auto;
+		}
+
+		@include mobile {
+			order: -1;
+			width: 100%;
+			max-width: 100%;
+			margin-bottom: 20px;
+		}
+	}
+
+	&__button {
+		@include mobile {
+			width: 100%;
+			max-width: 390px;
+			margin-inline: auto;
 		}
 	}
 }
